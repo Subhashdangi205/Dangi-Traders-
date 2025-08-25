@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<body style="font-family: Arial, sans-serif; margin:0; padding:0; background:#f9f9f9; color:#333;">
+
+  <div style="max-width:980px; margin:40px auto; background:#fff; padding:30px; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.08);">
+    <h1 style="text-align:center; font-size:28px; margin:0 0 8px; color:#2c3e50;">Return & Refund Policy</h1>
+    <p style="text-align:center; color:#6b7280; font-size:14px; margin:0 0 24px;">Effective Date: 21 August 2025</p>
+
+    <p style="margin:10px 0; line-height:1.7; font-size:16px;">
+      At <strong>Dangi Traders</strong>, we strive to provide you with high-quality agricultural products including fertilizers, animal feed, grocery items, and storage bags. 
+      If for any reason you are not satisfied, this Return & Refund Policy explains your rights and options.
+    </p>
+
+    <h2 style="font-size:20px; margin:22px 0 8px; color:#2c3e50;">1. Eligibility for Returns</h2>
+    <ul style="margin:8px 0 14px 20px; line-height:1.7; font-size:16px;">
+      <li>Items must be returned within <strong>7 days</strong> of purchase/delivery.</li>
+      <li>Products must be unused, unopened, and in original packaging.</li>
+      <li>Damaged, used, or opened items may not be eligible for return.</li>
+    </ul>
+
+    <h2 style="font-size:20px; margin:22px 0 8px; color:#2c3e50;">2. Non-Returnable Items</h2>
+    <ul style="margin:8px 0 14px 20px; line-height:1.7; font-size:16px;">
+      <li>Perishable goods (e.g., groceries, seeds once opened).</li>
+      <li>Customized or special-order products.</li>
+      <li>Items damaged due to mishandling after delivery.</li>
+    </ul>
+
+    <h2 style="font-size:20px; margin:22px 0 8px; color:#2c3e50;">3. Process for Returns</h2>
+    <p style="margin:8px 0; line-height:1.7;">
+      To request a return:
+    </p>
+    <ol style="margin:8px 0 14px 20px; line-height:1.7; font-size:16px;">
+      <li>Contact us via phone or WhatsApp within 7 days.</li>
+      <li>Provide your invoice/order details and reason for return.</li>
+      <li>Bring/ship the item to our store at your own expense (unless product was defective or incorrect).</li>
+    </ol>
+
+    <h2 style="font-size:20px; margin:22px 0 8px; color:#2c3e50;">4. Refunds</h2>
+    <ul style="margin:8px 0 14px 20px; line-height:1.7; font-size:16px;">
+      <li>Refunds will be issued only after inspection and approval of returned goods.</li>
+      <li>Refund method: original payment method (cash/UPI/bank transfer).</li>
+      <li>Processing time: up to <strong>7 business days</strong>.</li>
+    </ul>
+
+    <h2 style="font-size:20px; margin:22px 0 8px; color:#2c3e50;">5. Exchange Policy</h2>
+    <p style="margin:8px 0; line-height:1.7;">
+      In certain cases, you may choose to exchange the item for another product of equal or higher value (by paying the difference). 
+      Exchanges are subject to stock availability.
+    </p>
+
+    <h2 style="font-size:20px; margin:22px 0 8px; color:#2c3e50;">6. Contact for Returns</h2>
+    <address style="font-style:normal; line-height:1.8; font-size:16px;">
+      <strong>Dangi Traders</strong><br/>
+      558, Bearcha Fata Sonkatch Road, Near Wine Shop, Piplrawan<br/>
+      District Dewas, Madhya Pradesh – 455118<br/>
+      Phone: <a href="tel:+919644442146">+91 96444 42146</a> / <a href="tel:+919691999674">+91 96919 99674</a><br/>
+      WhatsApp: <a href="https://wa.me/919644442146" target="_blank">+91 96444 42146</a><br/>
+      Email: <a href="mailto:info@dangitraders.com">info@dangitraders.com</a>
+    </address>
+
+    <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; margin-top:24px; flex-wrap:wrap;">
+      <a href="{% url 'customer_homepage' %}" style="display:inline-block; background:#2c3e50; color:#fff; text-decoration:none; padding:12px 18px; border-radius:8px; font-size:15px;">⬅ Back to Home</a>
+      <div style="color:#6b7280; font-size:14px;">© 2025 Dangi Traders. All rights reserved.</div>
+    </div>
+  </div>
+</body>
+{% include "footer.html" %}
+{% endblock %}

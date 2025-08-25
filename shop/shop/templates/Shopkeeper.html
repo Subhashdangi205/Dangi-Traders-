@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- shopkeeper_header.html -->
+    <div style="background: #2c3e50; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center;">
+    
+    <!-- Logo -->
+    <div style="color: white; font-size: 20px; font-weight: bold;">
+        🛒 Dangi Traders - Shopkeeper
+    </div>
+    
+    <!-- Navigation Links -->
+    <div>
+      <a href="{% url 'customer_homepage' %}" style="color: white; text-decoration: none; margin-right: 15px;">Main Site</a>
+        <a href="{% url 'shopkeeper_logout' %}" style="color: #e74c3c; text-decoration: none; font-weight: bold;">Logout</a>
+    </div>
+
+</div>
+
+
+
+
+    <div style="padding: 20px;">
+
+        <!-- Stats Cards -->
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 20px;">
+            <div style="flex: 1; min-width: 200px; background: white; padding: 15px; border-radius: 8px; box-shadow: 0px 2px 5px rgba(0,0,0,0.1);">
+                <h3 style="margin: 0; color: #27ae60;">₹ {{ total_sales_today }}</h3>
+                <p style="margin: 5px 0 0;">Today's Sales</p>
+            </div>
+            <div style="flex: 1; min-width: 200px; background: white; padding: 15px; border-radius: 8px; box-shadow: 0px 2px 5px rgba(0,0,0,0.1);">
+                <h3 style="margin: 0; color: #2980b9;">{{ pending_orders }}</h3>
+                <p style="margin: 5px 0 0;">Pending Orders</p>
+            </div>
+            <div style="flex: 1; min-width: 200px; background: white; padding: 15px; border-radius: 8px; box-shadow: 0px 2px 5px rgba(0,0,0,0.1);">
+                <h3 style="margin: 0; color: #e67e22;">{{ low_stock_count }}</h3>
+                <p style="margin: 5px 0 0;">Low Stock Items</p>
+            </div>
+        </div>
+
+        <!-- Orders Table -->
+        <div style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0px 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px;">
+            <h2 style="margin-top: 0;">Recent Orders</h2>
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr style="background: #ecf0f1;">
+                    <th style="padding: 10px; border: 1px solid #ccc;">Order ID</th>
+                    <th style="padding: 10px; border: 1px solid #ccc;">Customer</th>
+                    <th style="padding: 10px; border: 1px solid #ccc;">Total</th>
+                    <th style="padding: 10px; border: 1px solid #ccc;">Status</th>
+                    <th style="padding: 10px; border: 1px solid #ccc;">Screenshot</th>
+                    <th style="padding: 10px; border: 1px solid #ccc;">Action</th>
+
+                    
+                </tr>
+                {% for order in recent_orders %}
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ccc;">{{ order.id }}</td>
+                    <td style="padding: 10px; border: 1px solid #ccc;">{{ order.customer_name }}</td>
+                    <td style="padding: 10px; border: 1px solid #ccc;">₹ {{ order.total_amount }}</td>
+                    <td style="padding: 10px; border: 1px solid #ccc;">{{ order.status }}</td>
+                    <td style="padding: 10px; border: 1px solid #ccc; text-align:center;">
+    {% if order.screenshot %}
+        <a href="{{ order.screenshot.url }}" target="_blank">
+            <img src="{{ order.screenshot.url }}" alt="screenshot" style="width:60px; height:60px; object-fit:cover; border-radius:5px; border:1px solid #ccc;">
+        </a>
+    {% else %}
+        <span style="color:#888;">Not Uploaded</span>
+    {% endif %}
+</td>
+  <td style="padding: 10px; border:1px solid #ccc; text-align:center;">
+    {% if order.status == "Pending" %}
+        <a href="{% url 'confirm_order' order.id %}" 
+           style="background-color:#2ecc71; color:white; padding:6px 12px; border-radius:4px; font-weight:bold; text-decoration:none;">
+           Confirm
+        </a>
+    {% else %}
+        <span style="color:green; font-weight:bold;">Confirmed</span>
+    {% endif %}
+</td>
+
+                  
+                       
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5" style="text-align: center; padding: 10px;">No recent orders</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <!-- Inventory Section -->
+        <div style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0px 2px 5px rgba(0,0,0,0.1);">
+    <h2 style="margin-top: 0;">Inventory</h2>
+    <a href="/shopkeeper_add_product/" style="color: white; background: #2ecc71; padding: 8px 14px; border-radius: 4px; text-decoration: none;">+ Add Product</a>
+    <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+        <tr style="background: #ecf0f1;">
+            <th style="padding: 10px; border: 1px solid #ccc;">Product</th>
+            <th style="padding: 10px; border: 1px solid #ccc;">Category</th>
+            <th style="padding: 10px; border: 1px solid #ccc;">Price</th>
+            <th style="padding: 10px; border: 1px solid #ccc;">Stock</th>
+            <th style="padding: 10px; border: 1px solid #ccc;">Description</th>
+            <th style="padding: 10px; border: 1px solid #ccc;">Image</th>
+            <th style="padding: 10px; border: 1px solid #ccc;">Action</th>
+        </tr>
+        {% for product in products %}
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ccc;">{{ product.name }}</td>
+            <td style="padding: 10px; border: 1px solid #ccc;">{{ product.category }}</td>
+            <td style="padding: 10px; border: 1px solid #ccc;">₹ {{ product.price }}</td>
+            <td style="padding: 10px; border: 1px solid #ccc;">{{ product.stock }}</td>
+            <td style="padding: 10px; border: 1px solid #ccc;">{{ product.description }}</td>
+            <td style="padding: 10px; border: 1px solid #ccc;">
+                {% if product.image %}
+                    <img src="{{ product.image.url }}" width="50" height="50">
+                {% else %}
+                    No Image
+                {% endif %}
+            </td>
+            <td style="display: flex; gap: 5px; justify-content: center;">
+                <a href="{% url 'edit_product' product.id %}"style="background-color: #f39c12; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 14px; font-weight: bold; display: inline-block; text-align: center; transition: background 0.3s;" >Edit</a>
+                <a href="{% url 'delete_product' product.id %}" style="background-color: #e74c3c; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 14px; font-weight: bold; display: inline-block; text-align: center; transition: background 0.3s;">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+    </div>
+
+{% include "footer.html" %}
+{% endblock %}    
+       

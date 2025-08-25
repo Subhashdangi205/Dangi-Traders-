@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- navbar.html -->
+<nav style="background-color: #1f2937; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; color: white; font-family: Arial, sans-serif;">
+    <!-- Logo / Brand -->
+    <div style="font-size: 20px; font-weight: bold;">
+        Welcome back {{ profile.user.first_name }} {{ profile.user.last_name }} Let’s get started 💼
+    </div>
+
+    <!-- Navbar Links -->
+    <ul style="list-style: none; display: flex; gap: 20px; margin: 0; padding: 0;">
+        <li><a href="{% url 'customer_homepage' %}" style="color: white; text-decoration: none; font-weight: 500;">Home</a></li>
+        <li><a href="{% url 'customer_orders' %}" style="color: white; text-decoration: none; font-weight: 500;">Orders</a></li>
+        <li><a href="/" style="color: white; text-decoration: none; font-weight: 500;">Logout</a></li>
+    </ul>
+</nav>
+
+
+<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; padding: 20px; min-height: 100vh; display: flex; justify-content: center; align-items: flex-start;">
+     <div style="background: #ffffff; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 40px; max-width: 600px; width: 100%; text-align: center; margin: 20px;">
+        
+
+   
+        <div style="margin-bottom: 30px;">
+            {% if profile.profile_image %}
+                <img src="{{ profile.profile_image.url }}" alt="Profile Image" 
+                style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 5px solid #4a90e2; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+            {% else %}
+                <img src="/static/img/default.jpg" alt="Profile Image" 
+                style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 5px solid #4a90e2; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+            {% endif %}
+        </div>
+
+        <h2 style="color: #333; font-size: 28px; font-weight: 600; margin-bottom: 25px;">{{ profile.user.first_name }} {{ profile.user.last_name }}</h2>
+
+        <div style="text-align: left; line-height: 1.8;">
+            <p style="font-size: 17px; color: #555; margin: 10px 0;"><strong>📧 Email:</strong> {{ profile.user.email }}</p>
+            <p style="font-size: 17px; color: #555; margin: 10px 0;"><strong>📞 Phone:</strong> {{ profile.phone|default:'Not provided' }}</p>
+            <p style="font-size: 17px; color: #555; margin: 10px 0;"><strong>🏠 Address:</strong> {{ profile.address|default:'Not provided' }}</p>
+        </div>
+
+        <a href="{% url 'edit_profile' %}" style="display: block; width: 100%; padding: 15px; margin-top: 30px; background-color: #4a90e2; color: #ffffff; text-decoration: none; border-radius: 10px; font-size: 18px; font-weight: 500; transition: background-color 0.3s, transform 0.2s;">
+           ✏️ Edit Profile
+        </a>
+      
+    </div>
+    
+</div>
+{% include "footer.html" %}
+{% endblock %}

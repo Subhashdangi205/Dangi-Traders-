@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href=" " class="logo">
+                    <div class="logo-icon">DT</div>
+                    <div class="logo-text">
+                        <h1>Dangi Traders</h1>
+                        <p>सब कुछ एक ही जगह</p>
+                    </div>
+                </a>
+
+                <nav class="nav-desktop">
+                   <a href="{% url 'home' %}" class="nav-link">Home</a>
+                    <a href="{% url 'login' %}" class="nav-link activem" onclick="alert('Please login to see details')">About</a>
+                    <!-- <div class="dropdown">
+                        <a href="/products/" class="nav-link dropdown-toggle">
+                            Products <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="products.html?category=grocery">Grocery</a>
+                            <a href="products.html?category=fertilizers">Fertilizers</a>
+                            <a href="products.html?category=animal-feed">Animal Feed</a>
+                            <a href="products.html?category=storage-bags">Storage Bags</a>
+                        </div>
+                    </div> -->
+                    <a href="{% url 'login' %}" class="nav-link" onclick="alert('Please login to see details')">Contact</a>
+                </nav>
+
+                <!-- <div class="header-actions">
+                    <div class="search-box">
+                        <form action="/products/" method="get" class="search-form">
+                        <input type="text" name="search" placeholder="Search Products..." />
+                        <button type="submit" style="padding: 10px 20px; background-color: #28a745; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; transition: background-color 0.3s ease;"onmouseover="this.style.backgroundColor='#218838'" onmouseout="this.style.backgroundColor='#28a745'">Search
+                        </button>
+                         </form>
+                    </div> -->
+
+
+  <div style="display: flex; justify-content: center; padding: 20px;">
+  <form action="{% url 'login' %}" method="get" style="display: flex; width: 100%; max-width: 550px; border: 1px solid #ced4da; border-radius: 50px; overflow: hidden; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);" onclick="alert('Please login to see details')">
+    <input 
+      type="text" 
+      name="search" 
+      placeholder="Search for products, categories, and more..." 
+      style="flex-grow: 1; padding: 12px 20px; border: none; outline: none; font-size: 16px; color: #495057; background: transparent;" 
+    />
+    <button 
+      type="submit" 
+      style="padding: 12px 25px; background-color: #28a745; color: white; border: none; font-size: 16px; font-weight: bold; cursor: pointer; transition: background-color 0.3s ease;"
+      onmouseover="this.style.backgroundColor='#218838'" 
+      onmouseout="this.style.backgroundColor='#28a745'"
+    >
+      Search
+    </button>
+  </form>
+</div>
+                    <!-- <a href="/cart/" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">3</span>
+                    </a> -->
+                    <!-- <a href="/login/" class="user-icon">
+                        <i class="fas fa-user"></i>
+                    </a> -->
+
+<a href="{% url 'login' %}" 
+   style="
+     color: #333; 
+     font-size: 24px; 
+     text-decoration: none; 
+     transition: color 0.3s ease; 
+     padding: 5px; 
+     border-radius: 5px;
+   "
+   onmouseover="this.style.color='#28a745'; this.style.backgroundColor='';"
+   onmouseout="this.style.color='#333'; this.style.backgroundColor='transparent';"
+>
+  <i class="fas fa-user"></i>
+</a>
+
+
+
+    
+
+
+
+         
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="/home/">Home</a>
+                <a href="/about/">About</a>
+                <div class="mobile-dropdown">
+                <span>Products</span>
+                 <!-- navbar dropdown items -->
+             <a href="{% url 'all_products' %}">All</a>
+<a href="{% url 'grocery' %}">Grocery</a>
+<a href="{% url 'fertilizers' %}">Fertilizers</a>
+<a href="{% url 'animal_feed' %}">Animal Feed</a>
+<a href="{% url 'storage_bags' %}">Storage Bags</a>
+
+
+
+                </div>
+                <a href="/contact/">Contact</a>
+                <div class="mobile-actions">
+                    <a href="/cart/"><i class="fas fa-shopping-cart"></i> Cart (3)</a>
+                    <a href="/login/"><i class="fas fa-user"></i> Login</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    {% endblock %}

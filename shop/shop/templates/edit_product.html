@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- shopkeeper_header.html -->
+    <div style="background: #2c3e50; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center;">
+    
+    <!-- Logo -->
+    <div style="color: white; font-size: 20px; font-weight: bold;">
+        🛒 Dangi Traders - Shopkeeper
+    </div>
+    
+    <!-- Navigation Links -->
+    <div>
+      <a href="/" style="color: white; text-decoration: none; margin-right: 15px;">Main Site</a>
+        <a href="/logout/" style="color: #e74c3c; text-decoration: none; font-weight: bold;">Logout</a>
+    </div>
+
+</div>
+<div style="max-width: 650px; max-height: 500px; overflow-y: auto; margin: 30px auto; background: #ffffff; padding: 25px 30px; border-radius: 12px; box-shadow: 0 6px 15px rgba(0,0,0,0.1); font-family: Arial, sans-serif;">
+    <h2 style="text-align: center; color: #2c3e50; margin-bottom: 25px;">Edit Product</h2>
+
+    <form method="POST" enctype="multipart/form-data" style="display: flex; flex-direction: column; gap: 18px;">
+        {% csrf_token %}
+
+        <!-- Name -->
+        <label style="font-weight: bold; color: #34495e;">Name:</label>
+        <input type="text" name="name" value="{{ form.name.value }}" style="padding: 10px; border: 1px solid #ccc; border-radius: 6px; width: 100%; font-size: 15px;">
+
+        <!-- Price -->
+        <label style="font-weight: bold; color: #34495e;">Price:</label>
+        <input type="number" step="0.01" name="price" value="{{ form.price.value }}" style="padding: 10px; border: 1px solid #ccc; border-radius: 6px; width: 100%; font-size: 15px;">
+
+        <!-- Stock -->
+        <label style="font-weight: bold; color: #34495e;">Stock:</label>
+        <input type="number" name="stock" value="{{ form.stock.value }}" style="padding: 10px; border: 1px solid #ccc; border-radius: 6px; width: 100%; font-size: 15px;">
+
+        <!-- Category -->
+        <label style="font-weight: bold; color: #34495e;">Category:</label>
+         <select name="category" class="form-control" 
+                style="width:100%; padding:10px; border:1px solid #ccc; border-radius:5px; box-sizing:border-box;">
+            <option value="" disabled selected>Select Category</option>
+            <option value="Fertilizers">Fertilizers</option>
+            <option value="Animal Feed">Animal Feed</option>
+            <option value="Storage Bags">Storage Bags</option>
+            <option value="Seeds">Seeds</option>
+            <option value="Tools">Tools</option>
+        </select>
+
+        <!-- Description -->
+        <label style="font-weight: bold; color: #34495e;">Description:</label>
+        <textarea name="description" rows="4" style="padding: 10px; border: 1px solid #ccc; border-radius: 6px; width: 100%; font-size: 15px;">{{ form.description.value }}</textarea>
+
+       
+
+        <!-- Submit Button -->
+        <button type="submit" style="padding: 12px; background-color: #3498db; color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; transition: background 0.3s;">
+            Update
+        </button>
+    </form>
+</div>
+
+{% include "footer.html" %}
+
+
+
+
+{% endblock %}

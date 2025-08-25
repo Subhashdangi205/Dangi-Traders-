@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-icon">DT</div>
+                        <div class="logo-text">
+                            <h3>Dangi Traders</h3>
+                            <p>सब कुछ एक ही जगह</p>
+                        </div>
+                    </div>
+                    <p>Your trusted partner for quality agricultural products and daily essentials. Serving the community for over 15 years.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="{% url 'customer_homepage' %}">Home</a></li>
+                        <li><a href="{% url 'about' %}">About Us</a></li>
+                        <li><a href="{% url 'all_products' %}">Products</a></li>
+                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                        <li><a href="{% url 'cart' %}">Shopping Cart</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="{% url 'grocery' %}">Grocery Items</a></li>
+                        <li><a href="{% url 'fertilizers' %}">Fertilizers</a></li>
+                        <li><a href="{% url 'animal_feed' %}">Animal Feed</a></li>
+                        <li><a href="{% url 'storage_bags' %}">Storage Bags</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contact Info</h4>
+                    <div class="contact-info">
+                       
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <p>+91 9644442146<br>+91 9691999674</p>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Dangi Traders. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="{% url 'privacy_policy' %}">Privacy Policy</a>
+                    <a href="{% url 'terms_of_service' %}">Terms of Service</a>
+                    <a href="{% url 'return_policy' %}">Return Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    {% endblock %}

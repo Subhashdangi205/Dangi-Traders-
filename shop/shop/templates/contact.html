@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    {% include "customerheader.html" %}
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Your trusted partner for quality agro products, groceries, and farming essentials – contact us today.</p>
+
+        </div>
+    </section>
+<!--  Contact Section -->
+   <!--  Contact Section -->
+<section class="contact-section" style="padding:40px 0; background:#f4f9f4;">
+    <div class="container" style="max-width:1200px; margin:auto;">
+        <div class="contact-layout" style="display:grid; grid-template-columns:60% 40%; gap:30px; align-items:start;">
+
+            <!-- Contact Form -->
+            <div class="contact-form-section" style="background:#fff; padding:25px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+                <h2 style="margin-bottom:20px; font-size:24px; color:#2e7d32;">Send us a Message</h2>
+
+
+                <form class="contact-form" id="contactForm" method="post" action="{% url 'contact' %}">
+                    {% csrf_token %}
+                    <div class="form-group" style="margin-bottom:15px;">
+                        <label for="name" style="display:block; margin-bottom:5px; font-weight:600;">Full Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your full name"
+                               style="width:100%; padding:10px; border:1px solid #ccc; border-radius:8px;">
+                    </div>
+
+                    <div class="form-group" style="margin-bottom:15px;">
+                        <label for="phone" style="display:block; margin-bottom:5px; font-weight:600;">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number"
+                               style="width:100%; padding:10px; border:1px solid #ccc; border-radius:8px;">
+                    </div>
+
+                    <div class="form-group" style="margin-bottom:15px;">
+                        <label for="email" style="display:block; margin-bottom:5px; font-weight:600;">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email address"
+                               style="width:100%; padding:10px; border:1px solid #ccc; border-radius:8px;">
+                    </div>
+
+                    <div class="form-group" style="margin-bottom:15px;">
+                        <label for="message" style="display:block; margin-bottom:5px; font-weight:600;">Message *</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Tell us how we can help you..."
+                                  style="width:100%; padding:10px; border:1px solid #ccc; border-radius:8px;"></textarea>
+                    </div>
+
+                    <button type="submit" style="background:#4caf50; color:#fff; border:none; padding:12px 20px; border-radius:8px; width:100%; font-size:16px; cursor:pointer;">
+                        Send Message
+                    </button>
+                </form><br>
+                 <!-- Thank You Message -->
+                {% if submitted %}
+                <div style="text-align:center; background-color:#e8f5e9; border:2px solid #4caf50; padding:20px; border-radius:12px; margin-bottom:20px;">
+                    <h3 style="color:#2e7d32; margin:0; font-size:20px;">
+                       Your message has been successfully received.<br>
+                        We appreciate your interest and will respond as soon as possible.
+                    </h3>
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- Contact Information -->
+            <div class="contact-info-section" style="background:#f9f9f9; padding:25px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.05);">
+                <h2 style="margin-bottom:20px; font-size:22px; color:#2e7d32;">Get in Touch</h2>
+                
+                <div class="contact-method" style="display:flex; align-items:flex-start; margin-bottom:15px;">
+                    <div style="font-size:22px; color:#4caf50; margin-right:12px;">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div>
+                        <h3 style="margin:0; font-size:18px; font-weight:600; color:#333;">Phone</h3>
+                        <p style="margin:2px 0; font-size:14px; color:#555;">+91 9644442146</p>
+                        <p style="margin:2px 0; font-size:14px; color:#555;">+91 9691999674</p>
+                    </div>
+                </div>
+
+                <div class="contact-method" style="display:flex; align-items:flex-start; margin-bottom:15px;">
+                    <div style="font-size:22px; color:#4caf50; margin-right:12px;">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div>
+                        <h3 style="margin:0; font-size:18px; font-weight:600; color:#333;">WhatsApp</h3>
+                        <p style="margin:2px 0; font-size:14px; color:#555;">+91 9644442146</p>
+                        <p style="margin:2px 0; font-size:12px; color:#888;">Available 24/7 for urgent queries</p>
+                    </div>
+                </div>
+
+                <div class="contact-method" style="display:flex; align-items:flex-start; margin-bottom:15px;">
+                    <div style="font-size:22px; color:#4caf50; margin-right:12px;">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h3 style="margin:0; font-size:18px; font-weight:600; color:#333;">Email</h3>
+                        <p style="margin:2px 0; font-size:14px; color:#555;">info@dangitraders.com</p>
+                        <p style="margin:2px 0; font-size:14px; color:#555;">orders@dangitraders.com</p>
+                    </div>
+                </div>
+
+                <div class="contact-method" style="display:flex; align-items:flex-start; margin-bottom:15px;">
+                    <div style="font-size:22px; color:#4caf50; margin-right:12px;">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <h3 style="margin:0; font-size:18px; font-weight:600; color:#333;">Address</h3>
+                       <p style="margin:2px 0; font-size:14px; color:#555;">
+  Dangi Traders<br>
+  558, Bearcha Fata Sonkatch Road,<br>
+  Near Wine Shop, Piplrawan<br>
+  District Dewas, Madhya Pradesh - 455118
+</p>
+
+                    </div>
+                </div>
+
+                <div class="contact-method" style="display:flex; align-items:flex-start; margin-bottom:15px;">
+                    <div style="font-size:22px; color:#4caf50; margin-right:12px;">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div>
+                        <h3 style="margin:0; font-size:18px; font-weight:600; color:#333;">Business Hours</h3>
+                        <p style="margin:2px 0; font-size:14px; color:#555;">Monday - Saturday: 8:00 AM - 8:00 PM</p>
+                        <p style="margin:2px 0; font-size:14px; color:#555;">Sunday: 9:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+
+                <!-- Map -->
+                <div class="map-section" style="margin-top:20px;">
+                    <h3 style="font-size:20px; margin-bottom:10px; color:#2e7d32;">Find Us</h3>
+                    <div class="map-container" style="width:100%; height:300px; border-radius:10px; overflow:hidden; box-shadow:0 3px 10px rgba(0,0,0,0.1);">
+                        <iframe 
+                           src="https://www.google.com/maps?q=Dangi+Traders,+558,+Bercha+Fata+Sonkatch+Road,+near+Wine+Shop,+Pipalrawan,+Madhya+Pradesh+455118&output=embed"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Call to Action -->
+    <section class="contact-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h3>Need Immediate Assistance?</h3>
+                <p>For urgent orders or queries, call us directly or send a WhatsApp message. We're here to help you with all your agricultural needs.</p>
+                <div class="cta-buttons">
+                    <a href="tel:+919644442146" class="btn btn-primary">Call Now</a>
+                    <a href="https://wa.me/9644442146" target="_blank" class="btn btn-secondary">WhatsApp Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% include "footer.html" %}
+{% endblock %}    
+   
