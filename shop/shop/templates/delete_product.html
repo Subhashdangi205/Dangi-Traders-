@@ -1,37 +1,137 @@
 {% extends 'base.html' %}
 
-{% block content %}
-    <!-- shopkeeper_header.html -->
-    <div style="background: #2c3e50; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center;">
-    
-    <!-- Logo -->
-    <div style="color: white; font-size: 20px; font-weight: bold;">
-        🛒 Dangi Traders - Shopkeeper
-    </div>
-    
-    <!-- Navigation Links -->
-    <div>
-      <a href="/" style="color: white; text-decoration: none; margin-right: 15px;">Main Site</a>
-        <a href="/logout/" style="color: #e74c3c; text-decoration: none; font-weight: bold;">Logout</a>
-    </div>
+    {% block content %}
+        <!-- shopkeeper_header.html -->
+        <div class="shopkeeper-header">
+            <!-- Logo -->
+            <div class="logo">
+                🛒 Dangi Traders - Shopkeeper
+            </div>
+            
+            <!-- Navigation Links -->
+            <div class="nav-links">
+                <a href="/" class="main-site">Main Site</a>
+                <a href="/logout/" class="logout">Logout</a>
+            </div>
+        </div>
 
-</div>
-<div style="max-width: 500px; margin: 50px auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; text-align: center; font-family: Arial, sans-serif; background-color: #ffffff; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-    <h2 style="font-size: 20px; margin-bottom: 25px; color: #333;">Are you sure you want to delete &quot;{{ product.name }}&quot;?</h2>
-    <form method="POST">
-        {% csrf_token %}
-        <button type="submit" 
-                style="padding: 10px 20px; background-color: #e74c3c; color: #ffffff; border: none; border-radius: 5px; cursor: pointer; font-size: 14px; margin-right: 10px; transition: background 0.3s;">
-            Yes, Delete
-        </button>
-        <a href="{% url 'shopkeeper_dashboard' %}" 
-           style="padding: 10px 20px; background-color: #34db5b; color: #ffffff; border-radius: 5px; text-decoration: none; font-size: 14px; cursor: pointer; transition: background 0.3s;">
-            Cancel
-        </a>
-    </form>
-</div>
+        <!-- Delete Confirmation Card -->
+        <div class="delete-card">
+            <h2>Are you sure you want to delete "{{ product.name }}"?</h2>
+            <form method="POST">
+                {% csrf_token %}
+                <button type="submit" class="delete-btn">Yes, Delete</button>
+                <a href="{% url 'shopkeeper_dashboard' %}" class="cancel-btn">Cancel</a>
+            </form>
+        </div>
 
-{% endblock %}
+        <style>
+        /* Header Styling */
+        .shopkeeper-header {
+            background: #2c3e50;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* important for mobile */
+        }
 
+        .shopkeeper-header .logo {
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
 
-{% include "footer.html" %}
+        .shopkeeper-header .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            font-size: 14px;
+        }
+
+        .shopkeeper-header .nav-links .logout {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        /* Delete Card Styling */
+        .delete-card {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .delete-card h2 {
+            font-size: 18px;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        .delete-btn {
+            padding: 10px 20px;
+            background-color: #e74c3c;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-right: 10px;
+            transition: background 0.3s;
+        }
+
+        .delete-btn:hover {
+            background-color: #c0392b;
+        }
+
+        .cancel-btn {
+            padding: 10px 20px;
+            background-color: #34db5b;
+            color: #ffffff;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .cancel-btn:hover {
+            background-color: #27ae60;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .shopkeeper-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .shopkeeper-header .nav-links {
+                margin-top: 10px;
+            }
+
+            .delete-card {
+                margin: 20px;
+                padding: 15px;
+            }
+
+            .delete-card h2 {
+                font-size: 16px;
+            }
+
+            .delete-btn,
+            .cancel-btn {
+                display: block;
+                width: 100%;
+                margin: 5px 0;
+            }
+        }
+        </style>
+    {% endblock %}
+
+    {% include "footer.html" %}

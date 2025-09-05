@@ -2,82 +2,152 @@
 {% load static %}
 {% block content %}
 
+<div class="privacy-container">
+    <h1>Privacy Policy</h1>
+    <p class="date">Effective Date: 21 August 2025</p>
 
-
-  <div style="max-width:900px; margin:40px auto; background:#fff; padding:30px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.1);">
-
-    <h1 style="text-align:center; font-size:28px; margin-bottom:10px; color:#2c3e50;">
-      Privacy Policy
-    </h1>
-    <p style="text-align:center; color:#777; font-size:14px; margin-bottom:30px;">
-      Effective Date: 21 August 2025
+    <p>
+        At <strong>Dangi Traders</strong>, we value the trust you place in us. 
+        This Privacy Policy explains how we collect, use, and protect your personal information 
+        when you visit our website or contact us.
     </p>
 
-    <p style="margin:10px 0; font-size:16px; line-height:1.6;">
-      At <strong>Dangi Traders</strong>, we value the trust you place in us. This Privacy Policy explains how we collect, use, and protect your personal information when you visit our website or contact us.
-    </p>
-
-    <h2 style="font-size:20px; margin-top:25px; color:#2c3e50;">1. Information We Collect</h2>
-    <ul style="margin:10px 0 20px 20px; line-height:1.6; font-size:16px;">
+    <h2>1. Information We Collect</h2>
+    <ul>
       <li>Name, phone number, email address (from contact forms).</li>
       <li>Order details and delivery address (when you place an order).</li>
       <li>Any additional information you choose to share with us.</li>
     </ul>
 
-    <h2 style="font-size:20px; margin-top:25px; color:#2c3e50;">2. How We Use Your Information</h2>
-    <ul style="margin:10px 0 20px 20px; line-height:1.6; font-size:16px;">
+    <h2>2. How We Use Your Information</h2>
+    <ul>
       <li>Respond to your queries and provide customer support.</li>
       <li>Process and confirm your orders.</li>
       <li>Share updates, offers, or important notifications (only if you agree).</li>
       <li>Improve our products and services.</li>
     </ul>
 
-    <h2 style="font-size:20px; margin-top:25px; color:#2c3e50;">3. Data Protection</h2>
-    <p style="margin:10px 0; font-size:16px; line-height:1.6;">
-      Your personal details are kept safe and are <strong>not shared or sold</strong> to any third-party for marketing purposes. We take reasonable steps to protect your information from unauthorized access.
+    <h2>3. Data Protection</h2>
+    <p>
+      Your personal details are kept safe and are <strong>not shared or sold</strong> 
+      to any third-party for marketing purposes. We take reasonable steps to protect 
+      your information from unauthorized access.
     </p>
 
-    <h2 style="font-size:20px; margin-top:25px; color:#2c3e50;">4. Sharing of Information</h2>
-    <p style="margin:10px 0; font-size:16px; line-height:1.6;">
-      We may share information only in the following cases:
-    </p>
-    <ul style="margin:10px 0 20px 20px; line-height:1.6; font-size:16px;">
+    <h2>4. Sharing of Information</h2>
+    <p>We may share information only in the following cases:</p>
+    <ul>
       <li>With delivery partners (to deliver your order).</li>
       <li>When required by law or government authorities.</li>
     </ul>
 
-    <h2 style="font-size:20px; margin-top:25px; color:#2c3e50;">5. Cookies & Website Data</h2>
-    <p style="margin:10px 0; font-size:16px; line-height:1.6;">
-      Our website may use cookies to improve user experience. You can disable cookies in your browser settings if you prefer.
+    <h2>5. Cookies & Website Data</h2>
+    <p>
+      Our website may use cookies to improve user experience. 
+      You can disable cookies in your browser settings if you prefer.
     </p>
 
-    <h2 style="font-size:20px; margin-top:25px; color:#2c3e50;">6. Your Rights</h2>
-    <ul style="margin:10px 0 20px 20px; line-height:1.6; font-size:16px;">
+    <h2>6. Your Rights</h2>
+    <ul>
       <li>You can request us to update or delete your personal data anytime.</li>
       <li>You may opt out of promotional messages by contacting us.</li>
     </ul>
 
-    <h2 style="font-size:20px; margin-top:25px; color:#2c3e50;">7. Contact Us</h2>
-    <p style="margin:10px 0; font-size:16px; line-height:1.6;">
-      If you have any questions about this Privacy Policy, please contact us:
-    </p>
-    <p style="margin:5px 0; font-size:15px;">
-      📍 <strong>Address:</strong>558, Bearcha Fata Sonkatch Road, Near Wine Shop, Piplrawan, District Dewas, Madhya Pradesh - 455118
-    </p>
-    <p style="margin:5px 0; font-size:16px;">
-      📞 <strong>Phone:</strong> +91 96444 42146 / +91 96919 99674
-    </p>
-    <p style="margin:5px 0; font-size:16px;">
-      📧 <strong>Email:</strong> info@dangitraders.com
-    </p>
+    <h2>7. Contact Us</h2>
+    <p>If you have any questions about this Privacy Policy, please contact us:</p>
+    <p>📍 <strong>Address:</strong> 558, Bearcha Fata Sonkatch Road, Near Wine Shop, Piplrawan, District Dewas, Madhya Pradesh - 455118</p>
+    <p>📞 <strong>Phone:</strong> +91 96444 42146 / +91 96919 99674</p>
+    <p>📧 <strong>Email:</strong> info@dangitraders.com</p>
 
-    <div style="text-align:center; margin-top:30px;">
-      <a href="{% url 'customer_homepage' %}" style="display:inline-block; background:#2c3e50; color:#fff; text-decoration:none; padding:12px 25px; border-radius:6px; font-size:16px;">
-        ⬅ Back to Home
-      </a>
+    <div class="back-home">
+      <a href="{% url 'customer_homepage' %}">⬅ Back to Home</a>
     </div>
-
-  </div>
+</div>
 
 {% include "footer.html" %}
+
+<style>
+.privacy-container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    font-family: Arial, sans-serif;
+}
+
+.privacy-container h1 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.privacy-container .date {
+    text-align: center;
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.privacy-container h2 {
+    font-size: 20px;
+    margin-top: 25px;
+    color: #2c3e50;
+}
+
+.privacy-container p, 
+.privacy-container ul {
+    margin: 10px 0;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.privacy-container ul {
+    padding-left: 20px;
+}
+
+.back-home {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.back-home a {
+    display: inline-block;
+    background: #2c3e50;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+.back-home a:hover {
+    background: #1a252f;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .privacy-container {
+        margin: 20px;
+        padding: 20px;
+    }
+    .privacy-container h1 {
+        font-size: 22px;
+    }
+    .privacy-container h2 {
+        font-size: 18px;
+    }
+    .privacy-container p, 
+    .privacy-container ul {
+        font-size: 14px;
+    }
+    .back-home a {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
+</style>
 {% endblock %}

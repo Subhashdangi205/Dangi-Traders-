@@ -3,86 +3,219 @@
 {% block content %}
 {% include "customerheader.html" %}
 
-<section style="padding: 20px; font-family: Arial, sans-serif;">
-    <h1 style="color: #0d1b2a;">Shopping Cart</h1>
+<section class="cart-section">
+    <h1>Shopping Cart</h1>
     
     {% if items %}
-    <div style="display: flex; gap: 30px; flex-wrap: wrap;">
+    <div class="cart-container">
         <!-- Cart Items -->
-        <div style="flex: 2;">
-            <h2 style="color: #0d1b2a;">Cart Items</h2>
-            <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+        <div class="cart-items">
+            <h2>Cart Items</h2>
+            <table class="cart-table">
                 <thead>
-                    <tr style="background-color: #0d1b2a; color: #fff;">
-                        <th style="padding: 10px; border: 1px solid #ddd;">Product</th>
-                        <th style="padding: 10px; border: 1px solid #ddd;">Quantity</th>
-                        <th style="padding: 10px; border: 1px solid #ddd;">Price</th>
-                        <th style="padding: 10px; border: 1px solid #ddd;">Action</th>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for item in items %}
                     <tr>
-                        <td style="padding: 10px; border: 1px solid #ddd;">{{ item.product.name }}</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">{{ item.quantity }}</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">₹{{ item.get_total }}</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">
-                            <a href="{% url 'remove_from_cart' item.id %}" style="color: red; text-decoration: none;">Remove</a>
+                        <td>{{ item.product.name }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>₹{{ item.get_total }}</td>
+                        <td>
+                            <a href="{% url 'remove_from_cart' item.id %}" class="remove-link">Remove</a>
                         </td>
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
-            <a href="{% url 'all_products' %}" style="display: inline-block; margin-top: 15px; padding: 8px 12px; background-color: #0d1b2a; color: #fff; border-radius: 5px; text-decoration: none;">
+            <a href="{% url 'all_products' %}" class="continue-btn">
                 ← Continue Shopping
             </a>
         </div>
 
         <!-- Order Summary -->
-        <div style="flex: 1; border: 1px solid #ddd; border-radius: 10px; padding: 15px; background-color: #f7f7f7; height: fit-content;">
-            <h2 style="color: #0d1b2a;">Order Summary</h2>
-            <div style="margin-top: 10px;">
-                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+        <div class="order-summary">
+            <h2>Order Summary</h2>
+            <div class="summary-details">
+                <div class="summary-row">
                     <span>Subtotal</span>
                     <span>₹{{ subtotal }}</span>
                 </div>
-                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                <div class="summary-row">
                     <span>GST (18%)</span>
                     <span>₹{{ gst }}</span>
                 </div>
-                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                <div class="summary-row">
                     <span>Shipping</span>
                     <span>₹{{ shipping }}</span>
                 </div>
                 {% if subtotal > 1000 %}
-                <div style="margin-bottom: 8px; color: green; font-weight: bold;">
+                <div class="free-shipping">
                     🎉 Free shipping applied!
                 </div>
                 {% endif %}
-                <div style="display: flex; justify-content: space-between; font-weight: bold; margin-top: 10px; border-top: 1px solid #ddd; padding-top: 10px;">
+                <div class="summary-row total">
                     <span>Total</span>
                     <span>₹{{ total }}</span>
                 </div>
             </div>
 
-            <a href="{% url 'checkout_cart' %}" style="display: block; margin-top: 15px; text-align: center; padding: 10px 0; background-color: #0d1b2a; color: #fff; border-radius: 5px; text-decoration: none;">
+            <a href="{% url 'checkout_cart' %}" class="checkout-btn">
                 Proceed to Checkout
             </a>
 
-            <div style="margin-top: 10px; font-size: 12px; color: gray;">
+            <div class="secure-note">
                 Secure checkout with SSL encryption
             </div>
         </div>
     </div>
     {% else %}
-    <div style="text-align: center; padding: 50px;">
-        <i class="fas fa-shopping-bag" style="font-size: 60px; color: #0d1b2a;"></i>
-        <h2 style="margin-top: 20px; color: #0d1b2a;">Your cart is empty</h2>
+    <div class="empty-cart">
+        <i class="fas fa-shopping-bag"></i>
+        <h2>Your cart is empty</h2>
         <p>Add some products to get started</p>
-        <a href="{% url 'all_products' %}" style="padding: 10px 15px; background-color: #0d1b2a; color: #fff; border-radius: 5px; text-decoration: none;">Continue Shopping</a>
+        <a href="{% url 'all_products' %}" class="continue-btn">Continue Shopping</a>
     </div>
     {% endif %}
 </section>
 
 {% include "footer.html" %}
+
+<style>
+/* Section */
+.cart-section {
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+.cart-section h1 {
+    color: #0d1b2a;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Layout */
+.cart-container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.cart-items {
+    flex: 2;
+}
+.order-summary {
+    flex: 1;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #f7f7f7;
+    height: fit-content;
+}
+
+/* Table */
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+.cart-table th, .cart-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+.cart-table th {
+    background-color: #0d1b2a;
+    color: #fff;
+}
+
+/* Links & Buttons */
+.remove-link {
+    color: red;
+    text-decoration: none;
+}
+.continue-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 15px;
+    background-color: #0d1b2a;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+}
+.checkout-btn {
+    display: block;
+    margin-top: 15px;
+    text-align: center;
+    padding: 12px 0;
+    background-color: #0d1b2a;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Summary */
+.summary-details {
+    margin-top: 10px;
+}
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+.summary-row.total {
+    font-weight: bold;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+}
+.free-shipping {
+    margin-bottom: 8px;
+    color: green;
+    font-weight: bold;
+}
+.secure-note {
+    margin-top: 10px;
+    font-size: 12px;
+    color: gray;
+}
+
+/* Empty Cart */
+.empty-cart {
+    text-align: center;
+    padding: 50px;
+}
+.empty-cart i {
+    font-size: 60px;
+    color: #0d1b2a;
+}
+.empty-cart h2 {
+    margin-top: 20px;
+    color: #0d1b2a;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .cart-container {
+        flex-direction: column;
+    }
+    .cart-items, .order-summary {
+        width: 100%;
+    }
+}
+@media (max-width: 600px) {
+    .cart-table th, .cart-table td {
+        font-size: 13px;
+        padding: 6px;
+    }
+    .continue-btn, .checkout-btn {
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+}
+</style>
 {% endblock %}

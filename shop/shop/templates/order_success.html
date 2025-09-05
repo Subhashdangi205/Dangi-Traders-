@@ -1,10 +1,43 @@
 {% extends "base.html" %}
 {% block content %}
-<div style="max-width:500px; margin:50px auto; padding:30px; text-align:center; background-color:#f0fff4; border:2px solid #4caf50; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,0.1); font-family:Arial,sans-serif;">
-    <h2 style="color:#2e7d32; font-size:24px; margin-bottom:25px; line-height:1.4;">
+<div style="
+    max-width:500px; 
+    margin:50px auto; 
+    padding:20px; 
+    text-align:center; 
+    background-color:#f0fff4; 
+    border:2px solid #4caf50; 
+    border-radius:15px; 
+    box-shadow:0 8px 20px rgba(0,0,0,0.1); 
+    font-family:Arial,sans-serif;
+    width:90%;
+">
+    <h2 style="color:#2e7d32; font-size:22px; margin-bottom:20px; line-height:1.4;">
         ✅ Payment screenshot uploaded successfully!<br>
         Your order is now pending confirmation.
     </h2>
-    <a href="{% url 'customer_homepage' %}" style="display:inline-block; margin-top:20px; padding:12px 25px; background-color:#2e7d32; color:#fff; font-weight:600; font-size:16px; border-radius:8px; text-decoration:none;">Go to Home</a>
+    <a href="{% url 'customer_homepage' %}" 
+       style="display:inline-block; margin-top:20px; padding:12px 25px; background-color:#2e7d32; color:#fff; font-weight:600; font-size:16px; border-radius:8px; text-decoration:none;">
+       Go to Home
+    </a>
 </div>
+
+<style>
+/* Mobile responsive adjustments */
+@media (max-width: 600px) {
+    div[style*="background-color:#f0fff4"] {
+        padding: 15px !important;
+        margin: 20px auto !important;
+    }
+
+    div[style*="background-color:#f0fff4"] h2 {
+        font-size: 18px !important;
+    }
+
+    div[style*="background-color:#f0fff4"] a {
+        font-size: 14px !important;
+        padding: 10px 20px !important;
+    }
+}
+</style>
 {% endblock %}

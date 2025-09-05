@@ -1,35 +1,127 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    {% include "header.html" %}
-<div style="background: white; padding: 30px; border-radius: 12px; box-shadow: 0px 4px 15px rgba(0,0,0,0.15); width: 350px;">
-    <h2 style="text-align: center; margin-bottom: 20px; color: #333;">Login</h2>
+{% include "header.html" %}
 
-    {% if messages %}
-        {% for message in messages %}
-            <p style="color: red; text-align: center; margin-bottom: 10px;">{{ message }}</p>
-        {% endfor %}
-    {% endif %}
+<div class="login-container">
+    <div class="login-card">
+        <h2>Login</h2>
 
-    <form method="POST" style="max-width: 300px; margin: 50px auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; background: #f9f9f9; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
-    {% csrf_token %}
-    <input type="text" name="username" placeholder="Enter Username" required 
-        style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
-    <input type="password" name="password" placeholder="Enter Password" required 
-        style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
-    <button type="submit" 
-        style="width: 100%; padding: 10px; background: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">
-        Login
-    </button>
-</form>
+        {% if messages %}
+            {% for message in messages %}
+                <p class="error-message">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
 
-    <p style="text-align: center; margin-top: 15px; font-size: 14px; color: #555;">
-        Don't have an account? <a href="{% url 'signup' %}" style="color: #007bff; text-decoration: none;">Sign Up</a>
-    </p>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Enter Username" required>
+            <input type="password" name="password" placeholder="Enter Password" required>
+            <button type="submit">Login</button>
+        </form>
+
+        <p class="signup-link">
+            Don't have an account? 
+            <a href="{% url 'signup' %}">Sign Up</a>
+        </p>
+    </div>
 </div>
 
-    
-    {% include "footer.html" %}
-{% endblock %}    
+{% include "footer.html" %}
 
+<style>
+/* Container */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 15px;
+    background: #f4f6f9;
+    min-height: 80vh;
+}
 
+/* Card */
+.login-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.15);
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+}
+.login-card h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Error messages */
+.error-message {
+    color: red;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+/* Form inputs */
+.login-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.login-card input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+.login-card input:focus {
+    border-color: #28a745;
+}
+.login-card button {
+    padding: 12px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+.login-card button:hover {
+    background: #218838;
+}
+
+/* Sign-up link */
+.signup-link {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #555;
+}
+.signup-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .login-card {
+        padding: 20px;
+        border-radius: 8px;
+    }
+    .login-card h2 {
+        font-size: 22px;
+    }
+    .login-card input,
+    .login-card button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+</style>
+{% endblock %}
