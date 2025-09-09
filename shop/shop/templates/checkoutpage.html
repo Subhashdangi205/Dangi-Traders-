@@ -1,78 +1,61 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-<section style="padding: 20px; font-family: Arial, sans-serif;">
-    <h2 style="color: #0d1b2a; text-align:center;">Checkout</h2>
+
+<link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+
+<section class="checkout-section">
+    <h2>Checkout</h2>
 
     <!-- Order Summary Table -->
-    <h3 style="margin-top: 20px; margin-bottom: 10px; font-size: 22px; font-weight: bold; text-align:center;">Order Summary</h3>
+    <h3>Order Summary</h3>
     
-    <!-- Table Wrapper for responsiveness -->
-    <div style="overflow-x:auto; margin-top:10px;">
-        <table style="width: 100%; min-width: 600px; border-collapse: collapse; font-size: 16px;">
+    <div class="table-wrapper">
+        <table class="checkout-table">
             <thead>
-                <tr style="background: #f4f4f4; text-align: left;">
-                    <th style="padding: 10px; border: 1px solid #ddd;">Product</th>
-                    <th style="padding: 10px; border: 1px solid #ddd; text-align: center;">Quantity</th>
-                    <th style="padding: 10px; border: 1px solid #ddd; text-align: right;">Price</th>
-                    <th style="padding: 10px; border: 1px solid #ddd; text-align: right;">Total</th>
+                <tr>
+                    <th>Product</th>
+                    <th class="center">Quantity</th>
+                    <th class="right">Price</th>
+                    <th class="right">Total</th>
                 </tr>
             </thead>
             <tbody>
                 {% for item in items %}
                 <tr>
-                    <td style="padding: 10px; border: 1px solid #ddd;">{{ item.product.name }}</td>
-                    <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">{{ item.quantity }}</td>
-                    <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">₹{{ item.product.price }}</td>
-                    <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">₹{{ item.get_total }}</td>
+                    <td>{{ item.product.name }}</td>
+                    <td class="center">{{ item.quantity }}</td>
+                    <td class="right">₹{{ item.product.price }}</td>
+                    <td class="right">₹{{ item.get_total }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
             <tfoot>
-                <tr style="background: #f9f9f9; font-weight: bold;">
-                    <td colspan="3" style="padding: 10px; border: 1px solid #ddd; text-align: right;">Grand Total</td>
-                    <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">₹{{ total }}</td>
+                <tr>
+                    <td colspan="3" class="right">Grand Total</td>
+                    <td class="right">₹{{ total }}</td>
                 </tr>
             </tfoot>
         </table>
     </div>
 
     <!-- Payment Form -->
-    <div style="margin-top: 30px; padding: 20px; border: 1px solid #ddd; border-radius: 10px; background: #f9f9f9; box-shadow: 0 2px 6px rgba(0,0,0,0.05); max-width: 600px; margin-left:auto; margin-right:auto;">
-        <h3 style="margin-bottom: 15px; font-size: 20px; font-weight: bold; color: #0d1b2a; text-align:center;">Payment Details</h3>
+    <div class="payment-form-container">
+        <h3>Payment Details</h3>
         
-        <form method="post" style="display:flex; flex-direction:column; gap:15px;">
+        <form method="post" class="payment-form">
             {% csrf_token %}
-
-            <!-- Payment Method -->
-            <label for="payment_method" style="font-weight: 600; color: #333;">Select Payment Method:</label>
-            <select id="payment_method" name="payment_method" required
-                    style="padding: 12px; border-radius: 8px; border: 1px solid #ccc; font-size: 15px; width:100%;">
+            
+            <label for="payment_method">Select Payment Method:</label>
+            <select id="payment_method" name="payment_method" required>
                 <option value="Cash on Delivery">💵 Cash on Delivery</option>
                 <option value="UPI">📱 UPI</option>
                 <option value="Credit Card">💳 Credit Card</option>
             </select>
 
-            <!-- Pay Button -->
-            <button type="submit" 
-                    style="padding: 14px; background-color: #0d1b2a; color: white; font-size: 16px; font-weight: bold; border-radius: 8px; border: none; cursor: pointer; transition: 0.3s;">
-                ✅ Pay Now
-            </button>
+            <button type="submit">✅ Pay Now</button>
         </form>
     </div>
 </section>
 
-<!-- Media Query for small screens -->
-<style>
-@media (max-width: 600px) {
-    section h2, section h3 {
-        font-size: 18px !important;
-    }
-    table {
-        font-size: 14px !important;
-    }
-    button {
-        font-size: 15px !important;
-    }
-}
-</style>
 {% endblock %}

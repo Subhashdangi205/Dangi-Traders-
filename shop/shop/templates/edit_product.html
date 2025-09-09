@@ -7,7 +7,7 @@
         <div class="logo">
             🛒 Dangi Traders - Shopkeeper
         </div>
-        
+            
         <!-- Navigation Links -->
         <div class="nav-links">
             <a href="/">Main Site</a>
@@ -37,17 +37,24 @@
             <!-- Category -->
             <label>Category:</label>
             <select name="category">
-                <option value="" disabled selected>Select Category</option>
-                <option value="Fertilizers">Fertilizers</option>
-                <option value="Animal Feed">Animal Feed</option>
-                <option value="Storage Bags">Storage Bags</option>
-                <option value="Seeds">Seeds</option>
-                <option value="Tools">Tools</option>
+                <option value="Fertilizers" {% if form.category.value == "Fertilizers" %}selected{% endif %}>Fertilizers</option>
+                <option value="Animal Feed" {% if form.category.value == "Animal Feed" %}selected{% endif %}>Animal Feed</option>
+                <option value="Storage Bags" {% if form.category.value == "Storage Bags" %}selected{% endif %}>Storage Bags</option>
+                <option value="Seeds" {% if form.category.value == "Seeds" %}selected{% endif %}>Seeds</option>
+                <option value="Tools" {% if form.category.value == "Tools" %}selected{% endif %}>Tools</option>
             </select>
 
             <!-- Description -->
             <label>Description:</label>
             <textarea name="description" rows="4">{{ form.description.value }}</textarea>
+
+            <!-- Image -->
+            <label>Product Image:</label>
+            <input type="file" name="image">
+            {% if form.instance.image %}
+                <p>Current Image:</p>
+                <img src="{{ form.instance.image.url }}" width="120" style="border:1px solid #ccc; border-radius:6px;">
+            {% endif %}
 
             <!-- Submit Button -->
             <button type="submit" class="update-btn">Update</button>
@@ -156,6 +163,5 @@
     }
     </style>
     
-
- {% include "footer.html" %}
+    {% include "footer.html" %}
 {% endblock %}

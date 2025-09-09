@@ -1,96 +1,80 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<footer class="footer" style="background: #2c3e50; color: #fff; padding: 40px 20px 20px;">
+<footer class="footer">
     <div class="container">
-        <div class="footer-content" 
-             style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px;">
+        <div class="footer-content">
             
             <!-- Logo + About -->
-            <div class="footer-section" style="flex: 1 1 220px; min-width: 220px;">
-                <div class="footer-logo" style="display: flex; align-items: center; margin-bottom: 10px;">
-                    <div class="logo-icon" 
-                         style="background: #28a745; color: #fff; font-weight: bold; font-size: 20px; width: 45px; height: 45px; display: flex; justify-content: center; align-items: center; border-radius: 50%; margin-right: 10px;">
-                        DT
-                    </div>
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <div class="logo-icon">DT</div>
                     <div class="logo-text">
-                        <h3 style="margin: 0; font-size: 20px;">Dangi Traders</h3>
-                        <p style="margin: 0; font-size: 14px;">सब कुछ एक ही जगह</p>
+                        <h3>Dangi Traders</h3>
+                        <p>सब कुछ एक ही जगह</p>
                     </div>
                 </div>
-                <p style="font-size: 14px; line-height: 1.6;">
+                <p>
                     Your trusted partner for quality agricultural products and daily essentials. Serving the community for over 15 years.
                 </p>
-                <div class="social-links" style="margin-top: 10px;">
-                    <a href="#" style="color: #fff; margin-right: 10px; font-size: 18px;"><i class="fab fa-facebook"></i></a>
-                    <a href="#" style="color: #fff; margin-right: 10px; font-size: 18px;"><i class="fab fa-instagram"></i></a>
-                    <a href="#" style="color: #fff; font-size: 18px;"><i class="fab fa-twitter"></i></a>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
 
             <!-- Quick Links -->
-            <div class="footer-section" style="flex: 1 1 160px; min-width: 160px;">
-                <h4 style="margin-bottom: 10px; font-size: 16px; border-bottom: 1px solid #555; padding-bottom: 5px;">Quick Links</h4>
-                <ul style="list-style: none; padding: 0; margin: 0;">
-                    <li><a href="#" style="color: #fff; text-decoration: none;">Home</a></li>
-                    <li><a href="#" style="color: #fff; text-decoration: none;">About Us</a></li>
-                    <li><a href="#" style="color: #fff; text-decoration: none;">Products</a></li>
-                    <li><a href="#" style="color: #fff; text-decoration: none;">Contact Us</a></li>
-                    <li><a href="#" style="color: #fff; text-decoration: none;">Shopping Cart</a></li>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Shopping Cart</a></li>
                 </ul>
             </div>
 
             <!-- Categories -->
-            <div class="footer-section" style="flex: 1 1 160px; min-width: 160px;">
-                <h4 style="margin-bottom: 10px; font-size: 16px; border-bottom: 1px solid #555; padding-bottom: 5px;">Categories</h4>
-                <ul style="list-style: none; padding: 0; margin: 0;">
-                    <li><a href="#" style="color: #fff; text-decoration: none;">Grocery Items</a></li>
-                    <li><a href="#" style="color: #fff; text-decoration: none;">Fertilizers</a></li>
-                    <li><a href="#" style="color: #fff; text-decoration: none;">Animal Feed</a></li>
-                    <li><a href="#" style="color: #fff; text-decoration: none;">Storage Bags</a></li>
+            <div class="footer-section">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="#">Grocery Items</a></li>
+                    <li><a href="#">Fertilizers</a></li>
+                    <li><a href="#">Animal Feed</a></li>
+                    <li><a href="#">Storage Bags</a></li>
                 </ul>
             </div>
 
             <!-- Contact Info -->
-            <div class="footer-section" style="flex: 1 1 200px; min-width: 200px;">
-                <h4 style="margin-bottom: 10px; font-size: 16px; border-bottom: 1px solid #555; padding-bottom: 5px;">Contact Info</h4>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
                 <div class="contact-info">
-                    <div class="contact-item" style="display: flex; align-items: flex-start; margin-bottom: 10px;">
-                        <i class="fas fa-phone" style="margin-right: 10px; font-size: 16px; color: #28a745;"></i>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
                         <div>
-                            <p style="margin: 0; font-size: 14px;">+91 9644442146</p>
-                            <p style="margin: 0; font-size: 14px;">+91 9691999674</p>
+                            <p>+91 9644442146</p>
+                            <p>+91 9691999674</p>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
 
         <!-- Footer Bottom -->
-        <div class="footer-bottom" 
-             style="margin-top: 25px; padding-top: 15px; border-top: 1px solid #444; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; text-align: center;">
-            <p style="margin: 0; font-size: 14px;">&copy; 2025 Dangi Traders. All rights reserved.</p>
-            <div class="footer-links" style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
-                <a href="#" style="color: #fff; font-size: 14px; text-decoration: none;">Privacy Policy</a>
-                <a href="#" style="color: #fff; font-size: 14px; text-decoration: none;">Terms of Service</a>
-                <a href="#" style="color: #fff; font-size: 14px; text-decoration: none;">Return Policy</a>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Dangi Traders. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Return Policy</a>
             </div>
         </div>
     </div>
 </footer>
 
-<!-- Responsive CSS -->
-<style>
-  @media (max-width: 768px) {
-    .footer-content {
-      flex-direction: column !important;
-      align-items: flex-start !important;
-    }
-    .footer-bottom {
-      flex-direction: column !important;
-      gap: 8px !important;
-      text-align: center !important;
-    }
-  }
-</style>
+
+
 {% endblock %}

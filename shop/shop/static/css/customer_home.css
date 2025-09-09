@@ -1,0 +1,225 @@
+/* ---------- General ---------- */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #1F2937;
+}
+h1, h2, h3, h4 {
+    font-weight: 600;
+}
+section {
+    padding: 80px 0;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+    border-radius: 8px;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+/* Green button colors as per logo theme */
+.btn-primary {
+    background-color: #28a745;
+    color: #fff;
+}
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    color: #218838;
+}
+
+.btn-secondary {
+    background-color: #218838;
+    color: #fff;
+}
+.btn-secondary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #28a745;
+    border-radius: 8px;
+    padding: 12px 25px;
+    transition: transform 0.3s;
+}
+.btn-white:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+
+}
+
+/* ---------- Hero ---------- */
+.hero {
+    background: linear-gradient(to right, #EFF6FF, #E0E7FF);
+}
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+.hero-text h1 {
+    font-size: 3rem;
+    color: #28a745;
+}
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: #6B7280;
+}
+.hero-description {
+    font-size: 1.1rem;
+    margin: 10px 0 20px;
+}
+.hero-buttons a {
+    margin-right: 15px;
+}
+.hero-image img {
+    border-radius: 15px;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+/* ---------- Categories ---------- */
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+.category-card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.category-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+.category-card h3 {
+    margin: 10px 0;
+    color: #28a745;
+}
+
+/* ---------- Offers ---------- */
+.offers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    gap: 20px;
+}
+.offer-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.offer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+/* ---------- Features ---------- */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap: 20px;
+}
+.feature-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+/* ---------- About ---------- */
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.about-text {
+    flex: 1;
+}
+.about-image img {
+    border-radius: 15px;
+    max-width: 100%;
+}
+
+/* ---------- Testimonials ---------- */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    gap: 20px;
+}
+.testimonial-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+.testimonial-card:hover {
+    transform: translateY(-5px);
+}
+.stars i {
+    color: #28a745;
+    margin-right: 2px;
+}
+
+/* ---------- Newsletter ---------- */
+.newsletter {
+    background: #28a745;
+    color: #fff;
+    text-align: center;
+    border-radius: inherit;
+    padding: 40px 20px;
+}
+.newsletter input {
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: none;
+    margin-right: 10px;
+    width: 250px;
+    max-width: 100%;
+}
+.newsletter button {
+    border: none;
+    border-radius: 8px;
+    padding: 12px 25px;
+    background: #FBBF24;
+    color: #1F2937;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+.newsletter button:hover {
+    transform: translateY(-3px);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}

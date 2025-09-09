@@ -1,0 +1,119 @@
+
+/* Navbar */
+.navbar {
+    background-color: #1f2937;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+.navbar-brand {
+    font-size: 18px;
+    font-weight: bold;
+}
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+.navbar-links a:hover {
+    color: #4a90e2;
+}
+
+/* Profile Container */
+.profile-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.profile-card {
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    padding: 40px;
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    margin: 20px;
+}
+.profile-img img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #4a90e2;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.profile-card h2 {
+    color: #333;
+    font-size: 26px;
+    font-weight: 600;
+    margin: 20px 0;
+}
+.profile-info {
+    text-align: left;
+    line-height: 1.8;
+    font-size: 16px;
+    color: #555;
+}
+.edit-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-top: 30px;
+    background-color: #4a90e2;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    transition: background-color 0.3s, transform 0.2s;
+}
+.edit-btn:hover {
+    background-color: #357ABD;
+    transform: translateY(-2px);
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    .navbar-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .profile-card {
+        padding: 20px;
+    }
+    .profile-card h2 {
+        font-size: 22px;
+    }
+    .profile-info {
+        font-size: 14px;
+    }
+    .edit-btn {
+        font-size: 16px;
+        padding: 12px;
+    }
+    .profile-img img {
+        width: 120px;
+        height: 120px;
+    }
+}

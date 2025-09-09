@@ -1,52 +1,32 @@
 {% extends 'base.html' %}
 {% block content %}
-  <div style="display: flex; justify-content: center; align-items: center; margin-top: 40px; padding: 20px;">
-    <div style="max-width: 420px; width: 100%; padding: 20px; border: 1px solid #ddd; border-radius: 12px; background: #ffffff; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center;">
-      
-      <!-- Heading -->
-      <h1 style="color: #2c3e50; font-size: 24px; margin-bottom: 12px;">Dangi Traders</h1>
-      
-      <!-- Instruction -->
-      <p style="font-size: 15px; margin-bottom: 15px; color:#555;">Scan this QR Code to complete the payment</p>
-      
-      <!-- QR Code -->
-      <div>
-        <img src="data:image/png;base64,{{ qr_code }}" alt="UPI QR Code" 
-             style="width: 100%; max-width: 220px; height: auto; border: 3px solid #2c3e50; border-radius: 8px; padding: 8px; background: #f8f9fa;">
-      </div>
-      
-      <!-- Payment Details -->
-      <div style="margin-top: 15px; text-align: left;">
-        <p style="font-size: 15px; margin: 5px 0;"><strong>Name:</strong> {{ name }}</p>
-        <p style="font-size: 15px; margin: 5px 0;"><strong>Amount:</strong> ₹{{ amount }}</p>
-      </div>
+<div class="qr-payment-container">
+<div class="qr-payment-card">
+        <h1>Dangi Traders</h1>
+        <p class="instruction">Scan this QR Code to complete the payment</p>
+        <div class="qr-code-wrapper">
+            <img src="data:image/png;base64,{{ qr_code }}" alt="UPI QR Code">
+        </div>
+        <div class="payment-details">
+            <p><strong>Name:</strong> {{ name }}</p>
+            <p><strong>Amount:</strong> ₹{{ amount }}</p>
+        </div>
 
-      <!-- Divider -->
-      <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+        <!-- Divider -->
+        <hr>
 
-      <!-- Upload Form -->
-      <h2 style="color: green; font-size: 18px; margin-bottom: 10px;">Upload Payment Screenshot</h2>
+        <!-- Upload Form -->
+        <h2>Upload Payment Screenshot</h2>
       
-      <form action="{% url 'upload_screenshot' order.id %}" method="POST" enctype="multipart/form-data" style="margin-top:10px;">
-        {% csrf_token %}
-        <input type="file" name="screenshot" id="screenshot" accept="image/*" required 
-               style="padding:10px; border:1px solid #ccc; border-radius:6px; width: 100%; margin-bottom:15px;">
-        
-        <button type="submit" 
-                style="background:green; color:white; padding:12px; font-size:16px; font-weight:600; border:none; border-radius:6px; cursor:pointer; width:100%;">
-          ✅ Submit Screenshot
-        </button>
-      </form>
+        <form action="{% url 'upload_screenshot' order.id %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="screenshot" id="screenshot" accept="image/*" required>
+            <button type="submit">✅ Submit Screenshot</button>
+        </form>
 
     </div>
-  </div>
+</div>
 
-  <!-- Extra Responsive Fix -->
-  <style>
-    @media (max-width: 576px) {
-      h1 { font-size: 20px !important; }
-      p, label { font-size: 14px !important; }
-      button { font-size: 15px !important; padding: 10px !important; }
-    }
-  </style>
+<!-- Link CSS -->
+
 {% endblock %}

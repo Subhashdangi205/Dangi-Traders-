@@ -139,12 +139,12 @@ def confirm_order(request, order_id):
 
 @login_required(login_url='/login/')
 def edit_product(request, id):
-    product = Product.objects.get(id=id)
+    product = get_object_or_404(Product, id=id)   # safe hai
     if request.method == "POST":
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
-            form.save() 
-            return redirect('shopkeeper_dashboard')  
+            form.save()
+            return redirect('shopkeeper_dashboard')
     else:
         form = ProductForm(instance=product)
     return render(request, 'edit_product.html', {'form': form})

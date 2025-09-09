@@ -1,4 +1,4 @@
-/* Reset and Base Styles */
+ Reset and Base Styles
 * {
   margin: 0;
   padding: 0;
@@ -121,7 +121,7 @@ p {
 }
 
 /* Header */
-.header {
+/* .header {
   background-color: var(--white);
   box-shadow: var(--shadow);
   position: sticky;
@@ -168,7 +168,7 @@ p {
   margin: 0;
 }
 
-/* Navigation */
+
 .nav-desktop {
   display: flex;
   align-items: center;
@@ -232,7 +232,7 @@ p {
   color: var(--primary-green);
 }
 
-/* Header Actions */
+
 .header-actions {
   display: flex;
   align-items: center;
@@ -296,7 +296,7 @@ p {
   justify-content: center;
 }
 
-/* Mobile Menu */
+
 .mobile-menu-btn {
   display: none;
   background: none;
@@ -351,10 +351,10 @@ p {
   display: flex;
   align-items: center;
   gap: 8px;
-}
+} */
 
 /* Hero Section */
-.hero {
+/* .hero {
   background: linear-gradient(135deg, var(--light-beige) 0%, var(--beige) 100%);
   padding: 80px 0;
 }
@@ -398,14 +398,14 @@ p {
   box-shadow: var(--shadow-lg);
 }
 
-/* Sections */
+
 .section-title {
   text-align: center;
   color: var(--dark-green);
   margin-bottom: 3rem;
 }
 
-/* Categories */
+
 .categories {
   padding: 80px 0;
   background-color: var(--light-beige);
@@ -451,7 +451,7 @@ p {
   margin: 0;
 }
 
-/* Featured Products */
+
 .featured-products {
   padding: 80px 0;
 }
@@ -538,7 +538,6 @@ p {
   background-color: var(--dark-green);
 }
 
-/* Special Offers */
 .special-offers {
   padding: 80px 0;
   background: linear-gradient(135deg, var(--light-green) 0%, #e8f5e8 100%);
@@ -568,7 +567,7 @@ p {
   margin-bottom: 1.5rem;
 }
 
-/* Why Choose Us */
+
 .why-choose-us {
   padding: 80px 0;
 }
@@ -610,7 +609,6 @@ p {
   margin: 0;
 }
 
-/* About Teaser */
 .about-teaser {
   padding: 80px 0;
   background-color: var(--light-beige);
@@ -641,7 +639,7 @@ p {
   box-shadow: var(--shadow-lg);
 }
 
-/* Testimonials */
+
 .testimonials {
   padding: 80px 0;
 }
@@ -678,7 +676,7 @@ p {
   font-size: 0.9rem;
 }
 
-/* Newsletter */
+
 .newsletter {
   padding: 80px 0;
   background-color: var(--primary-green);
@@ -714,10 +712,10 @@ p {
 .newsletter-form input:focus {
   outline: none;
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
-}
+} */
 
 /* Footer */
-.footer {
+/* .footer {
   background-color: var(--light-beige);
   border-top: 1px solid var(--dark-beige);
   padding: 60px 0 20px;
@@ -849,7 +847,7 @@ p {
 
 .footer-links a:hover {
   color: var(--primary-green);
-}
+} */
 
 /* Page Header */
 .page-header {
@@ -871,7 +869,7 @@ p {
 }
 
 /* About Page Styles */
-.our-story {
+/* .our-story {
   padding: 80px 0;
 }
 
@@ -1039,7 +1037,7 @@ p {
 .achievement-card p {
   color: var(--gray-700);
   margin: 0;
-}
+} */
 
 /* Products Page Styles */
 .products-section {
@@ -1099,8 +1097,8 @@ p {
 .search-input input {
   width: 100%;
   padding: 10px 12px 10px 40px;
-  border: 1px solid var(--gray-300);
-  border-radius: var(--border-radius);
+  /* border: 1px solid var(--gray-300);
+  border-radius: var(--border-radius); */
   font-size: 0.9rem;
 }
 
@@ -2183,4 +2181,4 @@ p {
   100% {
     transform: rotate(360deg);
   }
-}
+} 

@@ -1,0 +1,56 @@
+/* Payment success container */
+.payment-success-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #f0fff4;
+    border: 2px solid #4caf50;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    font-family: Arial, sans-serif;
+    width: 90%;
+}
+
+/* Success message */
+.payment-success-container h2 {
+    color: #2e7d32;
+    font-size: 22px;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+/* Home button */
+.home-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: #2e7d32;
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.home-btn:hover {
+    background-color: #27632a;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 600px) {
+    .payment-success-container {
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    .payment-success-container h2 {
+        font-size: 18px;
+    }
+
+    .home-btn {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
