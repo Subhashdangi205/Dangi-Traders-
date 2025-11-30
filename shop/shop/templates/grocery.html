@@ -12,7 +12,9 @@
                     alt="{{ product.name }}">
                 <h3>{{ product.name }}</h3>
                 <p><b>Price:</b> ₹{{ product.price }}</p>
-                <p><b>Stock:</b> {{ product.stock }}</p>
+                <p><b>Description:</b> {{ product.description|truncatewords:10 }}</p>
+
+                
 
                 <a href="{% url 'add_to_cart' product.id %}" class="cart-btn">
                     Add to Cart

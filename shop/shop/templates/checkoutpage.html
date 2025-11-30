@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 
-<link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+
 
 <section class="checkout-section">
     <h2>Checkout</h2>
@@ -47,7 +47,7 @@
             {% csrf_token %}
             
             <label for="payment_method">Select Payment Method:</label>
-            <select id="payment_method" name="payment_method" required>
+            <select style="max-width: fit-content;" id="payment_method" name="payment_method" required>
                 <option value="Cash on Delivery">💵 Cash on Delivery</option>
                 <option value="UPI">📱 UPI</option>
                 <option value="Credit Card">💳 Credit Card</option>

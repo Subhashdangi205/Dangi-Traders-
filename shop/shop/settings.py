@@ -82,6 +82,19 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'djongo',
+#         'NAME': 'your_mongodb_database_name',
+#         'ENFORCE_SCHEMA': False,
+#         'CLIENT': {
+#             # 'host':'mongodb://localhost:27017/',   # Agar local MongoDB chal raha ho
+           
+#               'host': 'mongodb+srv://dangi-traders:dangi-123@dangi-traders1.qc3mnfl.mongodb.net/',
+
+#         }  
+#     }
+# }
 
 
 # Password validation

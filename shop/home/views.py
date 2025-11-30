@@ -28,12 +28,15 @@ def about(request):
     return render(request, "about.html")
 def contact(request):
     return render(request, "contact.html")
+#*****************************************************************************************
+
 # Login and Dashboard Views
 def login_view(request):
     if request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")
-
+        # if username == "sandeepdangi" and password == "dangi123":
+        #     return redirect("shopkeeper_dashboard")
         user = authenticate(request, username=username, password=password)
 
         if user is not None:
@@ -56,16 +59,16 @@ def login_view(request):
             messages.error(request, "Invalid username or password")
 
     return render(request, "login.html") 
+#*******************************************************************************************
 # Signup View
-
-
-
 def signup(request):
     if request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")
         user_type = request.POST.get("user_type")  # from dropdown
-
+        # if user_type == "shopkeeper":
+        #     messages.error(request, "Shopkeeper signup is not allowed.")
+        #     return redirect("signup") 
         if User.objects.filter(username=username).exists():
             messages.error(request, "Username already exists")
         else:
@@ -77,8 +80,9 @@ def signup(request):
             return redirect("login")
     
     return render(request, "signup.html")
+#*******************************************************************************************
 
-#  yha se sirf shopkeeper ke liye dashboard hai
+# shopkeeper dashboard hai
 @login_required(login_url='/login/')
 def shopkeeper_dashboard(request):
     # Sirf shopkeeper ke liye
@@ -92,7 +96,7 @@ def shopkeeper_dashboard(request):
     )
     pending_orders = Order.objects.filter(status='Pending').count()
     low_stock_count = Product.objects.filter(stock__lt=5).count()
-    recent_orders = Order.objects.all().order_by('-created_at')[:5]
+    recent_orders = Order.objects.all().order_by('-created_at')
     products = Product.objects.all().order_by('-created_at')
 
     context = {
@@ -104,6 +108,8 @@ def shopkeeper_dashboard(request):
     }
 
     return render(request, 'Shopkeeper.html', context)
+
+# shopkeeper add product view
 @login_required(login_url='/login/')
 def shopkeeper_add_product(request):
     
@@ -111,7 +117,7 @@ def shopkeeper_add_product(request):
       if request.method == 'POST':
         name = request.POST.get('name')
         price = request.POST.get('price')
-        stock = request.POST.get('stock')
+        stock = request.POST.get('stock') 
         image = request.FILES.get('image')
         description = request.POST.get('description')
         category = request.POST.get('category')
@@ -148,6 +154,7 @@ def edit_product(request, id):
     else:
         form = ProductForm(instance=product)
     return render(request, 'edit_product.html', {'form': form})
+
 @login_required(login_url='/login/')
 def delete_product(request, id):  
     product = get_object_or_404(Product, id=id)
@@ -160,9 +167,7 @@ def delete_product(request, id):
 def shopkeeper_logout(request):
     logout(request)  
     return redirect('login') 
-
-
-
+#*****************************************************************************************
 # customer profile view
 
 @login_required(login_url='/login/')
@@ -183,9 +188,6 @@ def customer_homepage(request):
         "next_slide": next_slide
     })
   
-
-
-
 @login_required(login_url='/login/')
 
 def profile_view(request):
@@ -372,7 +374,8 @@ def animal_feed_products(request):
 def storage_bags_products(request):
     products = Product.objects.filter(category__iexact="Storage Bags")
     return render(request, "storage_bags.html", {"products": products, "title": "Storage Bags"})
-
+#****************************************************************************************************
+# Newsletter Subscription View
 def newsletter(request):
     if request.method == "POST":
         email = request.POST.get("email")
@@ -385,7 +388,8 @@ def newsletter(request):
 
     return render(request, "customer_homepage.html")
 
-
+#********************************************************************************************
+# Contact Form View
 def contact(request):
     submitted = False  # Flag to check if form submitted successfully
 
@@ -408,9 +412,11 @@ def contact(request):
 
     return render(request, 'contact.html', {'submitted': submitted})
 
+
 def map_view(request):
     return render(request, "contact.html") 
-
+#********************************************************************************************
+# Additional Static Pages Views
 def privacy_policy(request):
     return render(request, "privacy_policy.html")
 
