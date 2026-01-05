@@ -1,0 +1,154 @@
+/* Footer Main */
+.footer {
+    background: #2c3e50;
+    color: #fff;
+    padding: 40px 20px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Footer Section */
+.footer-section {
+    flex: 1 1 160px;
+    min-width: 160px;
+}
+
+.footer-logo-section {
+    flex: 1 1 220px;
+    min-width: 220px;
+}
+
+/* Logo */
+.footer-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.logo-icon {
+    background: #28a745;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.logo-text h3 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.logo-text p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.footer-description {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Social Links */
+.social-links a {
+    color: #fff;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+/* Footer Headings */
+.footer-section h4 {
+    margin-bottom: 10px;
+    font-size: 16px;
+    border-bottom: 1px solid #555;
+    padding-bottom: 5px;
+}
+
+/* Footer Links */
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 5px;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* Contact Info */
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.contact-item i {
+    margin-right: 10px;
+    font-size: 16px;
+    color: #28a745;
+}
+
+.contact-item p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #444;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-links a {
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+    }
+}

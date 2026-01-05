@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+    /* Background Animation Setup */
+    body {
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    @keyframes gradient {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    /* Glassmorphism Card with Entry Animation */
+    .signup-container {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+        transform: translateY(30px);
+        opacity: 0;
+        animation: fadeInUp 0.8s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .signup-title {
+        color: #333;
+        font-size: 28px;
+        margin-bottom: 10px;
+        font-weight: 700;
+    }
+
+    .otp-subtext {
+        color: #ff4d4d;
+        font-size: 14px;
+        margin-bottom: 25px;
+        display: block;
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0% { opacity: 0.6; }
+        50% { opacity: 1; }
+        100% { opacity: 0.6; }
+    }
+
+    /* Form Styling */
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    input[type="text"] {
+        padding: 12px 15px;
+        border: 2px solid #ddd;
+        border-radius: 10px;
+        font-size: 18px;
+        text-align: center;
+        letter-spacing: 5px; /* OTP look */
+        transition: all 0.3s ease;
+    }
+
+    input[type="text"]:focus {
+        border-color: #23a6d5;
+        outline: none;
+        box-shadow: 0 0 10px rgba(35, 166, 213, 0.3);
+        transform: scale(1.02);
+    }
+
+    button {
+        background: #28a745;
+        color: white;
+        padding: 12px;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    button:hover {
+        background: #218838;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+    }
+
+    button:active {
+        transform: translateY(0);
+    }
+
+    .error-msg {
+        background: #ffe6e6;
+        color: #d93025;
+        padding: 10px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        font-size: 14px;
+    }
+</style>
+
+<div class="signup-container">
+    <h2 class="signup-title">Verify OTP</h2>
+    <span class="otp-subtext">OTP sent to your email</span>
+
+    {% if messages %}
+        {% for message in messages %}
+            <p class="error-msg">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="otp" placeholder="••••••" maxlength="6" required>
+        <button type="submit">Verify & Continue</button>
+    </form>
+</div>
+
+{% endblock %}

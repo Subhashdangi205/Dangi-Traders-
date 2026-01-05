@@ -1,0 +1,82 @@
+
+/* Page background */
+body {
+    background-color: #f0f4f8;  /* Light, modern blue-gray tone */
+    margin: 0;
+    padding: 0;
+}
+
+/* Main container */
+.payment-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+/* Message Box with Animation */
+.message-box {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    animation: slideIn 0.6s ease-out;
+    max-width: 90%;
+    width: 400px;
+}
+
+/* Heading */
+.message-box h2 {
+    color: #012244;
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+/* Button */
+.message-box a {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #012244;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.message-box a:hover {
+    background: #023061;
+}
+
+/* Animation */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+    .message-box {
+        padding: 20px;
+    }
+
+    .message-box h2 {
+        font-size: 20px;
+    }
+
+    .message-box a {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}

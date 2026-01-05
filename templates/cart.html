@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% include "customerheader.html" %}
+
+<section class="cart-section">
+    <h1>Shopping Cart</h1>
+    
+    {% if items %}
+    <div class="cart-container">
+        <!-- Cart Items -->
+        <div class="cart-items">
+            <h2>Cart Items</h2>
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in items %}
+                    <tr>
+                        <td>{{ item.product.name }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>₹{{ item.get_total }}</td>
+                        <td>
+                            <a href="{% url 'remove_from_cart' item.id %}" class="remove-link">Remove</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <a href="{% url 'all_products' %}" class="continue-btn">
+                ← Continue Shopping
+            </a>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="order-summary">
+            <h2>Order Summary</h2>
+            <div class="summary-details">
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span>₹{{ subtotal }}</span>
+                </div>
+                <div class="summary-row">
+                    <span>GST (18%)</span>
+                    <span>₹{{ gst }}</span>
+                </div>
+                <div  class="summary-row">
+                    <span>Shipping</span>
+                    <span>₹{{ shipping }}</span>
+                </div>
+                {% if subtotal > 1000 %}
+                <div  class="free-shipping">
+                    🎉 Free shipping applied!
+                </div>
+                {% endif %}
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span>₹{{ total }}</span>
+                </div>
+            </div>
+
+            <a href="{% url 'checkout_cart' %}" class="checkout-btn">
+                Proceed to Checkout
+            </a>
+
+            <div class="secure-note">
+                Secure checkout with SSL encryption
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="empty-cart">
+        <i class="fas fa-shopping-bag"></i>
+        <h2>Your cart is empty</h2>
+        <p>Add some products to get started</p>
+        <a href="{% url 'all_products' %}" class="continue-btn">Continue Shopping</a>
+    </div>
+    {% endif %}
+</section>
+
+{% include "footer.html" %}
+
+
+{% endblock %}

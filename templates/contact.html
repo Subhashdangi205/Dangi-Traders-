@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+{% include "customerheader.html" %}
+
+<section class="page-header">
+    <div class="container">
+        <h1>Contact Us</h1>
+        <p>Your trusted partner for quality agro products, groceries, and farming essentials – contact us today.</p>
+    </div>
+</section>
+
+<section class="contact-section">
+    <div class="container">
+        <div class="contact-layout">
+
+            <!-- Contact Form -->
+            <div class="contact-form-section">
+                <h2>Send us a Message</h2>
+                <form class="contact-form" id="contactForm" method="post" action="{% url 'contact' %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email address">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Tell us how we can help you..."></textarea>
+                    </div>
+                    <button type="submit">Send Message</button>
+                </form><br>
+
+                {% if submitted %}
+                <div class="thank-you">
+                    <h3>Your message has been successfully received.<br>
+                        We appreciate your interest and will respond as soon as possible.
+                    </h3>
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- Contact Info -->
+            <div class="contact-info-section">
+                <h2>Get in Touch</h2>
+                <div class="contact-method">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h3>Phone</h3>
+                        <p>+91 9644442146</p>
+                        <p>+91 9691999674</p>
+                    </div>
+                </div>
+                <div class="contact-method">
+                    <i class="fab fa-whatsapp"></i>
+                    <div>
+                        <h3>WhatsApp</h3>
+                        <p>+91 9644442146</p>
+                        <p>Available 24/7 for urgent queries</p>
+                    </div>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h3>Email</h3>
+                        <p>dangitraders4444@gmail.com</p>
+                       
+                    </div>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h3>Address</h3>
+                        <p>Dangi Traders<br>
+                           558, Bearcha Fata Sonkatch Road,<br>
+                           Near Wine Shop, Piplrawan<br>
+                           District Dewas, MP - 455118</p>
+                    </div>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h3>Business Hours</h3>
+                        <p>Mon - Sat: 8:00 AM - 8:00 PM</p>
+                        <p>Sunday: 9:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+                <div class="map-section">
+                    <h3>Find Us</h3>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps?q=Dangi+Traders,+558,+Bercha+Fata+Sonkatch+Road,+near+Wine+Shop,+Pipalrawan,+Madhya+Pradesh+455118&output=embed"
+                                width="100%" height="100%" frameborder="0" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="contact-cta">
+    <div class="container">
+        <div class="cta-content">
+            <h3>Need Immediate Assistance?</h3>
+            <p>For urgent orders or queries, call us directly or send a WhatsApp message. We're here to help you with all your agricultural needs.</p>
+            <div class="cta-buttons">
+                <a href="tel:+919644442146" class="btn btn-primary">Call Now</a>
+                <a href="https://wa.me/9644442146" target="_blank" class="btn btn-secondary">WhatsApp Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include "footer.html" %}
+
+{% endblock %}

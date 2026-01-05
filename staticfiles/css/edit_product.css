@@ -1,0 +1,102 @@
+
+    /* Header */
+    .shopkeeper-header {
+        background: #2c3e50;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .shopkeeper-header .logo {
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .shopkeeper-header .nav-links a {
+        color: white;
+        text-decoration: none;
+        margin-left: 15px;
+        font-size: 14px;
+    }
+
+    .shopkeeper-header .nav-links .logout {
+        color: #e74c3c;
+        font-weight: bold;
+    }
+
+    /* Edit Form Card */
+    .edit-card {
+        max-width: 650px;
+        margin: 30px auto;
+        background: #ffffff;
+        padding: 25px 30px;
+        border-radius: 12px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        font-family: Arial, sans-serif;
+    }
+
+    .edit-card h2 {
+        text-align: center;
+        color: #2c3e50;
+        margin-bottom: 25px;
+    }
+
+    .edit-card form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .edit-card label {
+        font-weight: bold;
+        color: #34495e;
+    }
+
+    .edit-card input,
+    .edit-card select,
+    .edit-card textarea {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 15px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .update-btn {
+        padding: 12px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    .update-btn:hover {
+        background-color: #2980b9;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .shopkeeper-header {
+            flex-direction: column;
+            text-align: center;
+        }
+        .shopkeeper-header .nav-links {
+            margin-top: 10px;
+        }
+        .edit-card {
+            margin: 15px;
+            padding: 20px;
+        }
+        .edit-card h2 {
+            font-size: 18px;
+        }
+    }
+    
+    
