@@ -12,6 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-fallback-key')
 DEBUG = os.getenv('DEBUG', 'True') == 'True'
 ALLOWED_HOSTS = ["dangi-traders-4.onrender.com"]
+CSRF_TRUSTED_ORIGINS = ['https://dangi-traders-4.onrender.com']
 
 # --- Professional Standard Fixed (Postgres) ---
 # Ab aapko MongoDB ki special fields ki zaroorat nahi hai
