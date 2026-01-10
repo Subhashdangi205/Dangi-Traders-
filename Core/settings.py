@@ -11,7 +11,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Security Settings
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-fallback-key')
 DEBUG = os.getenv('DEBUG', 'True') == 'True'
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["dangi-traders-4.onrender.com"]
 
 # --- Professional Standard Fixed (Postgres) ---
 # Ab aapko MongoDB ki special fields ki zaroorat nahi hai
@@ -62,8 +62,18 @@ WSGI_APPLICATION = 'Core.wsgi.application'
 
 # --- PostgreSQL Configuration (Professional/Deployment Level) ---
 # Ye setup automatic .env se DATABASE_URL uthayega
+
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+    'default': dj_database_url.config(
+        default=os.getenv('DATABASE_URL'),
+        conn_max_age=600,
+        ssl_require=True
+    )
+}
+
+# Ye extra lines niche add kar do connection stable karne ke liye
+DATABASES['default']['OPTIONS'] = {
+    'sslmode': 'require',
 }
 
 # Inbuilt error checks ko ignore karne ki ab zaroorat nahi hai
