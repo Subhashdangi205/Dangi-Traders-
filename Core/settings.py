@@ -17,6 +17,7 @@ CSRF_TRUSTED_ORIGINS = ['https://dangi-traders-4.onrender.com']
 # --- Professional Standard Fixed (Postgres) ---
 # Ab aapko MongoDB ki special fields ki zaroorat nahi hai
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEBUG=True
 
 
 INSTALLED_APPS = [
@@ -25,7 +26,9 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
+    'cloudinary',
     'apps.home', 
    
     'tinymce',
@@ -131,4 +134,9 @@ CLOUDINARY_STORAGE = {
 }
 
 # Ye line Django ko batati hai ki images PC ke bajaye Cloudinary par bhejo
+
+# Static files (WhiteNoise use karo deployment ke liye)
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+
+# Media files (Images Cloudinary par jayengi)
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
