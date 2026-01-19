@@ -11,7 +11,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Security Settings
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-fallback-key')
 DEBUG = os.getenv('DEBUG', 'True') == 'True'
-ALLOWED_HOSTS = ["dangi-traders-4.onrender.com"]
+ALLOWED_HOSTS = ["dangi-traders-4.onrender.com",
+                 "localhost", 
+                 '127.0.0.1']
 CSRF_TRUSTED_ORIGINS = ['https://dangi-traders-4.onrender.com']
 
 # --- Professional Standard Fixed (Postgres) ---

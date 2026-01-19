@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from apps.home.models import Product
+import qrcode
 from django.core.paginator import Paginator
 from django.db.models import Q, Sum, Count
 from django.contrib.auth import authenticate, login, logout
